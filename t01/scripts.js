@@ -4,6 +4,9 @@
 var app = angular.module('myApp', ['ngMaterial']);
 
 app.controller('MainController', function (){
+    this.setCurrentItem = function (item) {
+        this.currentItem = item;
+    };
     this.items = [
         {
             label: 'Item One',

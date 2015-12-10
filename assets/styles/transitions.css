@@ -1,0 +1,20 @@
+.my-fade-animation.ng-enter,
+.my-fade-animation.ng-leave {
+    transition: 2.0s linear all;
+}
+
+.my-fade-animation.ng-enter {
+    opacity: 0;
+}
+
+.my-fade-animation.ng-enter-active {
+    opacity: 1;
+}
+
+.my-fade-animation.ng-leave {
+    opacity: 1;
+}
+
+.my-fade-animation.ng-leave-active {
+    opacity: 0;
+}

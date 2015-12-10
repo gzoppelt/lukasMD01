@@ -5,10 +5,10 @@
     <title>Angular for Designers</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.min.css">
-    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="../assets/styles/styles.css">
     <!--
-    <link rel="stylesheet" href="assets/styles/transitions.css">
-    <link rel="stylesheet" href="assets/styles/keyframes.css">
+    <link rel="stylesheet" href="../assets/styles/transitions.css">
+    <link rel="stylesheet" href="../assets/styles/keyframes.css">
     -->
 
     <style type="text/css">
@@ -22,11 +22,13 @@
 
 </head>
 <body ng-cloak>
+
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h1 layout="row">Angular for Designers</h1>
         </div>
     </md-toolbar>
+
     <md-content>
         <div layout="row" layout-align="center start">
             <div flex-gt-sm="80" flex-sm="90" layout-fill>
@@ -36,29 +38,16 @@
                             <label>Search Items</label>
                             <input ng-model="q">
                         </md-input-container>
+
                         <div layout="row">
                             <div flex="50">
                                 <h3>Items</h3>
                                 <md-list>
-                                    <md-list-item class="md-3-line item my-fade-animation"
-                                                  ng-class-even="'even'"
-                                                  ng-class-odd="'odd'"
-                                                  ng-class="{'active': main.currentItem.id == item.id}"
-                                                  ng-swipe-right="main.setCurrentItem(item)"
-                                                  ng-swipe-left="main.setCurrentItem()"
-                                                  ng-repeat="item in main.items | filter:{label:q}">
-                                        <img ng-src="{{ item.avatar }}?{{ $index }}" class="md-avatar" alt="{{item.label}}">
-                                        <div class="md-list-item-text">
-                                            <h3 class="label">{{ item.label }}</h3>
-                                            <p class="description">
-                                                {{ item.description }}
-                                            </p>
-                                            <p class="price">
-                                                Price {{ item.price | currency }}
-                                            </p>
-                                        </div>
-                                    </md-list-item>
+
+                                    <item></item>
+
                                 </md-list>
+
                                 <md-card>
                                     <md-card-content>
                                         <h3>Discount</h3>
@@ -77,7 +66,6 @@
                                         </md-whiteframe>
                                     </md-card-content>
                                 </md-card>
-
                             </div>
 
                             <div class="my-fade-animation" flex="50" ng-if="main.currentItem">
@@ -111,57 +99,9 @@
                                     </md-card-content>
                                 </md-card>
 
-                                <md-card>
-                                    <md-card-content>
-                                        <md-whiteframe
-                                                ng-if="main.submitMessage"
-                                                class="md-whiteframe-5dp"
-                                                flex="100" layout layout-align="center center"
-                                        >
-                                            <strong>{{ main.submitMessage }}</strong>
-                                        </md-whiteframe>
-                                        <form name="currentItemForm">
-                                            <md-input-container class="md-block">
-                                                <label>Label</label>
-                                                <input
-                                                        ng-model-options="{updateOn: 'blur'}"
-                                                        ng-blur="main.showDiscount()"
-                                                        ng-focus="main.removeDiscount()"
-                                                        required
-                                                        minlength="3"
-                                                        md-maxlength="10"
-                                                        name="label" ng-model="main.currentItem.label">
-                                                <div ng-messages="currentItemForm.label.$error"
-                                                        role="alert" multiple>
-                                                    <div ng-message="required" class="my-message">Too nothing!</div>
-                                                    <div ng-message="minlength" class="my-message">Too short!</div>
-                                                    <div ng-message="md-maxlength" class="my-message">Too long!</div>
-
-                                                </div>
-                                            </md-input-container>
-                                            <md-input-container class="md-block">
-                                                <label>Description</label>
-                                                <input name="description" ng-model="main.currentItem.description">
-                                            </md-input-container>
-                                            <md-input-container class="md-block">
-                                                <label>Price</label>
-                                                <input name="price"  type="number" ng-model="main.currentItem.price">
-                                            </md-input-container>
-                                            <md-button type="submit" ng-click="main.submitItem(main.currentItem)">Submit</md-button>
-                                        </form>
-                                    </md-card-content>
-                                </md-card>
-                                <md-card>
-                                    <md-card-content>
-                                        <h3>Current Item Form Object</h3>
-                                        <div class="code">
-                                            <p><pre>{{ currentItemForm | json }}</pre></p>
-                                        </div>
-                                    </md-card-content>
-                                </md-card>
+                                <current-item></current-item>
                             </div>
                         </div>
-
                     </md-card-content>
                 </md-card>
             </div>

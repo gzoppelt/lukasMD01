@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular for Designers</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.min.css">
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <!--
+    <link rel="stylesheet" href="../assets/styles/transitions.css">
+    <link rel="stylesheet" href="../assets/styles/keyframes.css">
+    -->
+
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+</head>
+<body ng-cloak>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h1 layout="row" arc-text>Angular for Designers</h1>
+            <span flex></span>
+            <md-button ui-sref="items" class="md-raised" aria-label="Items">Items</md-button>
+            <md-button ui-sref="about" class="md-raised" aria-label="About">About</md-button>
+        </div>
+    </md-toolbar>
+    <md-content ui-view>
+
+    </md-content>
+
+
+    <script src="../assets/scripts/jquery-2.1.4.min.js"></script>
+    <script src="../assets/scripts/jquery.arctext.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-messages.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-touch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+</html>

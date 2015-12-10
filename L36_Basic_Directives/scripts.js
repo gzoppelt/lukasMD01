@@ -3,6 +3,18 @@
  */
 var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ngTouch', 'ngAnimate']);
 
+app.directive('item', function(){
+    return {
+        templateUrl: './item.html'
+    }
+});
+
+app.directive('currentItem', function(){
+    return {
+        templateUrl: './current-item.html'
+    }
+});
+
 app.animation('.my-fade-animation', function () {
     return {
         enter: function(element, done) {
@@ -44,7 +56,7 @@ app.controller('OptionsController', function () {
 });
 
 app.controller('MainController', function (){
-    var imagePath = 'assets/images/angular-logo.svg';
+    var imagePath = '../assets/images/angular-logo.svg';
 
     this.setCurrentItem = function (item) {
         this.currentItem = item;

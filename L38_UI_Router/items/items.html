@@ -1,0 +1,77 @@
+<div layout="row" layout-align="center start">
+    <div flex-gt-sm="80" flex-sm="90" layout-fill>
+        <md-card>
+            <md-card-content ng-controller="MainController as main">
+                <md-input-container class="md-block">
+                    <label>Search Items</label>
+                    <input ng-model="q">
+                </md-input-container>
+
+                <div layout="row">
+                    <div flex="50">
+                        <h3>Items</h3>
+                        <md-list>
+
+                            <item></item>
+
+                        </md-list>
+
+                        <md-card>
+                            <md-card-content>
+                                <h3>Discount</h3>
+                                <md-whiteframe
+                                        ng-mouseenter="main.showDiscount()"
+                                        ng-mouseleave="main.removeDiscount()"
+                                        class="md-whiteframe-5dp"
+                                        flex="100" layout layout-align="center center">
+                                    <strong>Rollover to See Discount</strong>
+                                </md-whiteframe>
+                                <md-whiteframe
+                                        ng-if="main.discountMessage"
+                                        class="md-whiteframe-5dp"
+                                        flex="100" layout layout-align="center center">
+                                    <strong>{{ main.discountMessage }}</strong>
+                                </md-whiteframe>
+                            </md-card-content>
+                        </md-card>
+                    </div>
+
+                    <div class="my-fade-animation" flex="50" ng-if="main.currentItem">
+                        <md-card>
+                            <md-card-content>
+                                <h3>Current Item</h3>
+                                <div class="code">
+                                    <p><pre>{{ main.currentItem | json }}</pre></p>
+                                </div>
+                                <md-button ng-click="main.setCurrentItem()">
+                                    Clear
+                                </md-button>
+                            </md-card-content>
+                        </md-card>
+
+                        <md-card>
+                            <md-card-content ng-controller="OptionsController as opt">
+                                <md-input-container class="md-block">
+                                    <label>Options</label>
+                                    <md-select ng-model="opt.option">
+                                        <md-option ng-repeat="option in opt.options"
+                                                   value="{{ option.value }}">
+                                            {{ option.label }}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <select ng-model="opt.option"
+                                        ng-options="option.value as option.label for option in opt.options">
+                                    <option value="">Choose an option</option>
+                                </select>
+                            </md-card-content>
+                        </md-card>
+
+                        <current-item></current-item>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>
+

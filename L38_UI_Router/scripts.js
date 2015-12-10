@@ -1,7 +1,46 @@
 /**
  * Created by g on 04/12/15.
  */
-var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ngTouch', 'ngAnimate']);
+var app = angular.module('myApp', ['ngMaterial', 'ngMessages', 'ngTouch', 'ngAnimate', 'ui.router']);
+
+app.config(function($stateProvider, $urlRouterProvider){
+    //
+    //for any unmatched url, redirect to state1
+    $urlRouterProvider.otherwise("/about");
+    //
+    //states
+    $stateProvider
+        .state('items', {
+            url: "/items",
+            templateUrl: "./items/items.html"
+        })
+        .state('about', {
+            url: "/about",
+            templateUrl: "./about/about.html"
+        })
+    ;
+});
+
+app.directive('arcText', function(){
+    function linker(scope, element, attrs) {
+        element.arctext({radius: 300});
+    }
+    return {
+        link: linker
+    }
+});
+
+app.directive('item', function(){
+    return {
+        templateUrl: './item.html'
+    }
+});
+
+app.directive('currentItem', function(){
+    return {
+        templateUrl: './current-item.html'
+    }
+});
 
 app.animation('.my-fade-animation', function () {
     return {
@@ -44,7 +83,7 @@ app.controller('OptionsController', function () {
 });
 
 app.controller('MainController', function (){
-    var imagePath = 'assets/images/angular-logo.svg';
+    var imagePath = '../assets/images/angular-logo.svg';
 
     this.setCurrentItem = function (item) {
         this.currentItem = item;

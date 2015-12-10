@@ -1,0 +1,20 @@
+<md-list-item class="md-3-line item my-fade-animation"
+              ng-class-even="'even'"
+              ng-class-odd="'odd'"
+              ng-class="{'active': main.currentItem.id == item.id}"
+              ng-swipe-right="main.setCurrentItem(item)"
+              ng-swipe-left="main.setCurrentItem()"
+              ng-repeat="item in main.items | filter:{label:q}">
+    <img ng-src="{{ item.avatar }}?{{ $index }}" class="md-avatar" alt="{{item.label}}">
+    <div class="md-list-item-text">
+        <h3 class="label">{{ item.label }}</h3>
+        <p class="description">
+            {{ item.description }}
+        </p>
+        <p class="price">
+            Price {{ item.price | currency }}
+        </p>
+    </div>
+</md-list-item>
+
+<link rel="stylesheet" href="../assets/styles/styles.css">

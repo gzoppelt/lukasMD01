@@ -1,0 +1,54 @@
+md-whiteframe {
+    margin: 7px;
+    height: 50px;
+    background-color: #4CAF50;
+    color: #FFF;
+}
+
+.even {
+    background-color: #E1F5FE;
+}
+
+.odd {
+    background-color: #B3E5FC;
+}
+
+.active {
+    background-color: #C8E4FA;
+}
+
+.active:hover {
+    /* this did not help, when the mouse is over the active item then background fades to white ?? */
+    background-color: #C8E4FA;
+}
+
+.code {
+    margin: 10px;
+}
+
+select {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 5px 5px 5px 5px;
+    border-bottom-width: 1px;
+    background-color: transparent;
+    position: relative;
+    box-sizing: content-box;
+    min-width: 64px;
+    min-height: 26px;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.black {
+    color: black;
+}
